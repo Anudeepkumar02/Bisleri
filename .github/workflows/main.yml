@@ -1,7 +1,8 @@
 name: Receive repository dispatch event
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [dispatch-event]
 
 jobs:
   log:
