@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: Event received
         run: echo "Event received"
+
+      - name: Verify Branch
+        run: echo "Workflow running on branch ${{ github.event.client_payload.branch }}"
+
