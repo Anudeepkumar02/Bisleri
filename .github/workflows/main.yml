@@ -10,12 +10,15 @@ jobs:
     steps:
       - name: Event received
         run: echo "Event received"
-        
-      - name: Checkout the specific branch
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.client_payload.branch }}
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Checkout the correct branch
+        run: git checkout ${{ github.event.client_payload.branch }}
+
+      - name: Verify Current Branch
+        run: git branch --show-current
 
       - name: Verify Branch
         run: echo "Workflow running on branch ${{ github.event.client_payload.branch }}"
-
