@@ -11,6 +11,9 @@ jobs:
       - name: Event received
         run: echo "Event received"
 
+      - name: Checkout the Repository
+        uses: actions/checkout@v3
+
       - name: Fetch all branches
         run: git fetch --all
 
